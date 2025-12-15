@@ -1,0 +1,5 @@
+Started Loki using Docker:
+docker run -d -p 3100:3100 grafana/loki:2.9.0
+
+Viewed logs using:
+docker logs <container_id>
