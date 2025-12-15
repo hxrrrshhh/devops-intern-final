@@ -1,13 +1,13 @@
-DevOps Intern Final Project
+# DevOps Intern Final Project
 
-Name: Harsh Sharma
+# Name: Harsh Sharma
 
-Date: 16-12-2025
+# Date: 16-12-2025
 
-Project Overview:
+# Project Overview:
 This project demonstrates a complete DevOps workflow including Git & GitHub setup, Linux scripting, Docker containerization, CI/CD using GitHub Actions, Nomad deployment, and Monitoring setup with Loki.
 
-Project Structure:
+# Project Structure:
 
 - hello.py                # Python test script
 - Dockerfile              # Docker container definition
@@ -17,7 +17,7 @@ Project Structure:
 - monitoring/loki_setup.txt  # Loki setup instructions
 - README.md
 
-Step-by-Step Setup & Execution:
+# Step-by-Step Setup & Execution:
 
 Part 0: Basic Requirements (One-Time Setup)
 1. GitHub account: Create an account and verify email.
@@ -100,7 +100,7 @@ Part 7: Running Everything
 - Nomad: nomad job run nomad/hello.nomad
 - Monitoring: docker run -d -p 3100:3100 grafana/loki:2.9.0, docker logs <container_id>
 
-Final Checklist:
+# Final Checklist:
 - GitHub repo
 - hello.py
 - scripts/sysinfo.sh
