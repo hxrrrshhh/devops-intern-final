@@ -1,111 +1,100 @@
-# DevOps Intern Final Project
+# 🚀 DevOps Intern Final Project
 
-# Name: Harsh Sharma
+**Name:** Harsh Sharma  
+**Date:** 16-12-2025  
 
-# Date: 16-12-2025
+---
 
-# Project Overview:
-This project demonstrates a complete DevOps workflow including Git & GitHub setup, Linux scripting, Docker containerization, CI/CD using GitHub Actions, Nomad deployment, and Monitoring setup with Loki.
+## 🌟 Project Overview
+This project demonstrates a **complete DevOps workflow** including Git & GitHub setup, Linux scripting, Docker containerization, CI/CD with GitHub Actions, Nomad deployment, and Monitoring setup with Loki. It simulates a realistic DevOps pipeline from development to deployment and monitoring.
 
-# Project Structure:
+---
 
-- hello.py                # Python test script
-- Dockerfile              # Docker container definition
-- scripts/sysinfo.sh      # Linux shell script for system info
-- .github/workflows/ci.yml  # GitHub Actions CI workflow
-- nomad/hello.nomad       # Nomad job specification
-- monitoring/loki_setup.txt  # Loki setup instructions
-- README.md
+## 📂 Project Structure
+- `hello.py`                  → Python test script  
+- `Dockerfile`                → Docker container definition  
+- `scripts/sysinfo.sh`        → Linux shell script for system info  
+- `.github/workflows/ci.yml`  → GitHub Actions CI workflow  
+- `nomad/hello.nomad`         → Nomad job specification  
+- `monitoring/loki_setup.txt` → Loki setup instructions  
+- `README.md`                 → Project documentation  
 
-# Step-by-Step Setup & Execution:
+---
 
-Part 0: Basic Requirements (One-Time Setup)
-1. GitHub account: Create an account and verify email.
-2. Git: Install from git-scm.com and verify git --version.
-3. Python: Install Python 3.x from python.org, tick “Add to PATH”, verify python --version.
-4. Docker Desktop: Install from docker.com and verify docker --version.
-5. Nomad: Download from hashicorp.com, extract, move nomad.exe to C:\Windows\System32, verify nomad version.
-6. VS Code: Install from code.visualstudio.com.
+## 🛠 Step-by-Step Setup & Execution
 
-Part 1: Git & GitHub Setup
-1. Create a repository: devops-intern-final (public, with README).
-2. Clone repository locally: cd Desktop, git clone https://github.com/YOUR_USERNAME/devops-intern-final.git, cd devops-intern-final.
-3. Create hello.py: print("Hello, DevOps!")
-4. Push changes: git add ., git commit -m "Added hello.py", git push
+### Part 0: Basic Requirements (One-Time Setup)
+1. Create a **GitHub account** and verify email.  
+2. Install **Git** and verify installation.  
+3. Install **Python 3.x** and ensure it's added to PATH.  
+4. Install **Docker Desktop** and verify installation.  
+5. Download and setup **Nomad**, ensure it is accessible system-wide.  
+6. Install **VS Code**.
 
-Part 2: Linux & Scripting
-1. mkdir scripts
-2. Create scripts/sysinfo.sh:
-   #!/bin/bash
-   echo "User: $(whoami)"
-   echo "Date: $(date)"
-   df -h
-3. chmod +x scripts/sysinfo.sh, ./scripts/sysinfo.sh
-4. Push changes: git add ., git commit -m "Added sysinfo script", git push
+---
 
-Part 3: Docker
-1. Create Dockerfile:
-   FROM python:3.10-slim
-   WORKDIR /app
-   COPY hello.py .
-   CMD ["python", "hello.py"]
-2. docker build -t hello-devops .
-3. docker run hello-devops
-4. Push Dockerfile
+### Part 1: Git & GitHub Setup
+1. Create a **new repository** (public, with README) on GitHub.  
+2. Clone the repository locally.  
+3. Create `hello.py` with a simple Python script.  
+4. Commit and push changes to GitHub.
 
-Part 4: CI/CD with GitHub Actions
-1. mkdir -p .github/workflows
-2. Create .github/workflows/ci.yml:
-   name: CI Pipeline
-   on: [push]
-   jobs:
-     run-python:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-         - name: Run hello.py
-           run: python hello.py
-3. Push workflow, check GitHub Actions tab
+---
 
-Part 5: Nomad Deployment
-1. Create nomad/hello.nomad:
-   job "hello-devops" {
-     datacenters = ["dc1"]
-     type = "service"
-     group "hello" {
-       task "hello" {
-         driver = "docker"
-         config {
-           image = "hello-devops"
-         }
-         resources {
-           cpu = 100
-           memory = 128
-         }
-       }
-     }
-   }
-2. Push Nomad job
+### Part 2: Linux & Scripting
+1. Create a `scripts` directory.  
+2. Add `sysinfo.sh` to retrieve system information.  
+3. Make the script executable and run it.  
+4. Commit and push the script to GitHub.
 
-Part 6: Monitoring with Loki
-1. Create monitoring/loki_setup.txt:
-   Started Loki using Docker:
-   docker run -d -p 3100:3100 grafana/loki:2.9.0
-   Viewed logs using: docker logs <container_id>
-2. Push monitoring documentation
+---
 
-Part 7: Running Everything
-- Docker: docker build -t hello-devops ., docker run hello-devops
-- CI/CD: Push to GitHub → check Actions tab
-- Nomad: nomad job run nomad/hello.nomad
-- Monitoring: docker run -d -p 3100:3100 grafana/loki:2.9.0, docker logs <container_id>
+### Part 3: Docker
+1. Create a `Dockerfile` for the Python application.  
+2. Build a Docker image and run the container to test.  
+3. Commit and push the Dockerfile to GitHub.
 
-# Final Checklist:
-- GitHub repo
-- hello.py
-- scripts/sysinfo.sh
-- Dockerfile
-- GitHub Actions workflow
-- Nomad job
-- Loki setup documentation
+---
 
+### Part 4: CI/CD with GitHub Actions
+1. Create `.github/workflows` directory.  
+2. Add a CI workflow file to run the Python script on every push.  
+3. Commit and push the workflow to GitHub.  
+4. Verify pipeline execution in GitHub Actions tab.
+
+---
+
+### Part 5: Nomad Deployment
+1. Create a Nomad job specification file.  
+2. Define the job to deploy the Docker container.  
+3. Commit and push the Nomad configuration to GitHub.
+
+---
+
+### Part 6: Monitoring with Loki
+1. Setup Loki using Docker for log aggregation.  
+2. Document steps in `monitoring/loki_setup.txt`.  
+3. Commit and push monitoring documentation to GitHub.
+
+---
+
+### Part 7: Running Everything
+1. Build and run the Docker container.  
+2. Push changes to trigger the CI/CD pipeline.  
+3. Deploy the Nomad job.  
+4. Start Loki container and monitor logs.
+
+---
+
+## ✅ Final Checklist
+- [x] GitHub repository created  
+- [x] `hello.py` script  
+- [x] `scripts/sysinfo.sh`  
+- [x] `Dockerfile`  
+- [x] GitHub Actions workflow  
+- [x] Nomad job specification  
+- [x] Loki setup documentation  
+
+---
+
+✨ **Project Completed Successfully!**
